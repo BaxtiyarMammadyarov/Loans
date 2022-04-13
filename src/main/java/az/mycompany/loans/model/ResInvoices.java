@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ResInvoices {
-    UserCalculate userCalculate;
+    CalculateInvoices calculateInvoices;
     List<InvocesResponse> responseList;
 
 

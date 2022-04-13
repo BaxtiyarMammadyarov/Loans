@@ -12,7 +12,7 @@ public interface LoanService {
 
     List<ResponseUserLoan> allLoans();
 
-    void calculate(Model model, UserCalculate calculate);
+    void calculate(Model model, CalculateInvoices calculateInvoices);
 
 
 }

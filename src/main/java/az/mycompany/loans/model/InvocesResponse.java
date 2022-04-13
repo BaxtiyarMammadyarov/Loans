@@ -8,13 +8,15 @@ import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class InvocesResponse {
     String invoiceNo;
-    LocalDate duaDate;
+    LocalDateTime duaDate;
     BigDecimal amount;
 
 }

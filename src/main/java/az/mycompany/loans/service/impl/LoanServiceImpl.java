@@ -42,24 +42,24 @@ public class LoanServiceImpl implements LoanService {
     }
 
     @Override
-    public void calculate(Model model, UserCalculate userCalculate) {
+    public void calculate(Model model, CalculateInvoices calculateInvoices) {
         List<InvocesResponse> list=new ArrayList<>();
-        BigDecimal unpaid=userCalculate.getCalculateInvoices().getAmount();
+        BigDecimal unpaid=calculateInvoices.getAmount();
         BigDecimal result;
-        for (int i=0;i<userCalculate.getCalculateInvoices().getPeriod();i++){
+        for (int i=0;i<calculateInvoices.getPeriod();i++){
             InvocesResponse invocesResponse=new InvocesResponse();
             invocesResponse.setInvoiceNo("00"+i);
-            invocesResponse.setDuaDate(userCalculate.getCalculateInvoices().getPayoutDate().plusMonths(i+1));
-            result=userCalculate.getCalculateInvoices().getAmount()
-                    .divide(BigDecimal.valueOf(userCalculate.getCalculateInvoices().getPeriod()))
-                    .add(unpaid.multiply(userCalculate.getCalculateInvoices().getInterest()));
+            invocesResponse.setDuaDate(calculateInvoices.getPayoutDate().plusMonths(i+1));
+            result=calculateInvoices.getAmount()
+                    .divide(BigDecimal.valueOf(calculateInvoices.getPeriod()))
+                    .add(unpaid.multiply(calculateInvoices.getInterest()));
             invocesResponse.setAmount(result);
             list.add(invocesResponse);
             unpaid.subtract(result);
 
 
         }
-        model.addAttribute("calLoans",new ResInvoices(userCalculate,list));
+        model.addAttribute("calLoans",new ResInvoices(calculateInvoices,list));
 
 
     }
@@ -94,7 +94,7 @@ public class LoanServiceImpl implements LoanService {
         responseUserLoan.setName(entity.getUserEntity().getName());
         responseUserLoan.setSurname(entity.getUserEntity().getSurname());
         responseUserLoan.setAmount(entity.getAmount());
-        responseUserLoan.setPayoutDate(entity.getPayOutDate().toLocalDate());
+        responseUserLoan.setPayoutDate(entity.getPayOutDate());
         return responseUserLoan;
 
     }

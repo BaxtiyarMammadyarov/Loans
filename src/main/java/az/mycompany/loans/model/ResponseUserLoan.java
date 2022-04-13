@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 @AllArgsConstructor
@@ -20,6 +21,6 @@ public class ResponseUserLoan {
     String name;
     String surname;
     BigDecimal amount;
-    LocalDate payoutDate;
+    LocalDateTime payoutDate;
 
 }

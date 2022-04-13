@@ -5,9 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +19,7 @@ public class CalculateInvoices {
    BigDecimal amount;
    Integer period;
    BigDecimal interest;
-   LocalDate payoutDate;
+   @DateTimeFormat(pattern = "yyyy-MM-dd 'T' HH:mm")
+   LocalDateTime payoutDate;
 
 }

@@ -13,7 +13,8 @@
 		<h3>Loan details</h3>
 		<hr>
 	</div>
-	<table class="table1" th:if="${!users.isEmpty()}" th:object="${Request}" >
+	<form  action="#" method="post" th:object="${Request}" id="form1">
+	<table class="table1" th:if="${!users.isEmpty()}"  >
 		<tr>
 			<td class="pd-10">
 				Client
@@ -67,18 +68,18 @@
 		<tr>
 			<td  class="pd-10">Payout date</td>
 			<td  class="pd-10">
-				<input type="date" name="" id="month2" placeholder="5" class="br-none interest" th:field="*{payoutDate}"">
+				<input type="date"  id="month2" placeholder="5" class="br-none interest" th:field="*{payoutDate}">
 
 			</td>
 		</tr>
 		<tr>
 			<td style="padding: 20px 0;"></td>
-			<td style="padding: 20px 0;"><button id="calculate" class="bottom" type="submit" th:formaction="/issue">Calculate invoices</button></td>
+			<td style="padding: 20px 0;"><button id="calculate" form="form1" class="bottom" type="submit" >Calculate invoices</button></td>
 		</tr>
 
 
 	</table>
-
+	</form>
 
 	<div class="inter">
 
