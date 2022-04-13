@@ -1,0 +1,154 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	list-style-type: none;
+	outline: none
+}
+:root {
+	--gray: #b1bbc4;
+	--darkgray: #d1d9e1;
+   }
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Montagu+Slab&family=Roboto+Condensed&family=Shippori+Antique&display=swap');
+
+
+body{
+	background-color: #eff1f3;
+}
+h3{
+	font-family: 'Caveat', cursive;
+	font-size: 2em;
+}
+.head{
+	margin: 0 70px;
+}
+hr{
+	width: 40%;
+}
+.container{
+	margin: 0 160px;
+}
+
+   
+   select {
+	/* Reset Select */
+	appearance: none;
+	outline: 0;
+	border: 0;
+	box-shadow: none;
+	/* Personalize */
+	flex: 1;
+	padding: 0 1em;
+	color: #fff;
+	background-color: var(--darkgray);
+	background-image: none;
+	cursor: pointer;
+   }
+   /* Remove IE arrow */
+   select::-ms-expand {
+	display: none;
+   }
+   /* Custom Select wrapper */
+   .select {
+	position: relative;
+	display: flex;
+	width: 20em;
+	height: 3em;
+	
+	border-radius: .25em;
+	overflow: hidden;
+   }
+   /* Arrow */
+   .select::after {
+	content: '\25BC';
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 1em;
+	background-color: #e5e3e3;
+	
+	transition: .25s all ease;
+	pointer-events: none;
+   }
+
+
+.first{
+	display: flex;
+	justify-content: space-evenly;
+	
+}
+#number{
+	width: 23.5em;
+	height: 3em;
+	background-color: var(--darkgray);
+	
+}
+#loan{
+	width: 23.5em;
+	height: 3em;
+		
+	background-color: var(--darkgray);
+}
+
+#month{
+	width: 23.5em;
+	height: 3em;
+		
+	background-color: var(--darkgray);
+}
+#month2{
+	width: 23.5em;
+	background-color: var(--darkgray);
+	height: 3em;
+	
+}
+.br-none{
+	border: none;
+	border-radius: 3px;
+	padding: 3px;
+}
+.wd-15{
+	width: 15%;
+}
+.table1{
+	width:70%;
+	margin: 0 auto;
+}
+.pd-10{
+	padding: 10px 0;
+}
+.pd-15{
+	padding: 10px 0 35px 0;
+}
+.table2{
+	width:52%;
+	margin: 0 165px;
+	border-collapse: collapse;
+}
+th,td{
+	padding: 15px;
+}
+th{
+
+	background-color: var(--darkgray);	
+}
+.total{
+	padding: 10px;
+    width: 50px;
+    
+	background-color: var(--darkgray);	
+	border: none;
+    margin: 0   120px 0 0;
+}
+.bottom{
+width: 60%;
+margin: 10px auto;
+text-align: end;
+}
+.bottom2{
+	width: 37%;
+	
+	margin: 10px auto;
+	text-align: end;
+	
+	}

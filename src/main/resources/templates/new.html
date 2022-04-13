@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<div class="container">
+	<div class="head">
+		<h3>Loan details</h3>
+		<hr>
+	</div>
+	<table class="table1" th:if="${!users.isEmpty()}" th:object="${Request}" >
+		<tr>
+			<td class="pd-10">
+				Client
+			</td>
+			<td  class="pd-10">
+				<div class="select">
+					<select th:each="user:${users}">
+						<option value="1" th:text="${user.getClientUniqueId()+' '+user.getName()+' '+user.getSurname()}"> </option>
+
+					</select>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td  class="pd-15">Telephone Number</td>
+			<td  class="pd-15"><input type="tel" name="" id="number" placeholder="+372937262323" class="br-none"></td>
+		</tr>
+		<tr>
+			<td  class="pd-10">Loan Amount</td>
+			<td  class="pd-10">
+				<input type="text" name="" id="loan" placeholder="750" class="br-none" th:field="*{amount}">
+			</td>
+		</tr>
+
+		<tr>
+			<td  class="pd-10">
+				Loan Amount (period)
+
+			</td>
+			<td  class="pd-10">
+				<div class="slc2">
+					<div class="select">
+					<input id="period" type="number" min="3" th:field="*{period}">
+					</div>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+
+			<td  class="pd-10">
+				Monthly Interet rate
+			</td>
+			<td  class="pd-10">
+				<input type="text" name="" id="interest" placeholder="5%" class="br-none" th:field="*{interest}">
+			</td>
+
+		</tr>
+
+		<tr>
+			<td  class="pd-10">Payout date</td>
+			<td  class="pd-10">
+				<input type="date" name="" id="month2" placeholder="5" class="br-none interest" th:field="*{payoutDate}"">
+
+			</td>
+		</tr>
+		<tr>
+			<td style="padding: 20px 0;"></td>
+			<td style="padding: 20px 0;"><button id="calculate" class="bottom" type="submit" th:formaction="/issue">Calculate invoices</button></td>
+		</tr>
+
+
+	</table>
+
+
+	<div class="inter">
+
+		<div class="bottom2">
+			<button type="submit" value="Cancel" style="padding: 10px; width: 90px;">Cancel</button>
+		</div>
+	</div>
+
+
+</div>
+
+	
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="head">
+			<h3>Loan details</h3>
+			<hr>
+		</div>
+		<table class="table1" th:if="${calLoans.isEmpty()}">
+			<tr>
+				<td class="pd-10">
+					Client
+				</td>
+				<td  class="pd-10">
+					<div class="select">
+						<select >
+						  <option
+								  value="1"
+								  th:text="${calLoans.getUserCalculate().getUser().getClientUniqueId()+''+calLoans.getUserCalculate().getUser().getName+''+calLoans.getUserCalculate().getUser().getUsername}">123456A |Ahmad Akhtarov</option>
+						
+						</select>
+					   </div>
+				</td>
+			</tr>
+
+			<tr>
+				<td  class="pd-15">Telephone Number</td>
+				<td  class="pd-15"><input type="tel" name="" id="number" placeholder="+372937262323" class="br-none" th:text="${calLoans.getUserCalculate().getUser().getTelePhoneNr()"></td>
+			</tr>
+			<tr>
+				<td  class="pd-10">Loan Amount</td>
+				<td  class="pd-10">
+					<input type="text" name="" id="loan" th:text="${calLoans.getUserCalculate().getCalculateInvoices().getAmount()}" class="br-none" >
+				</td>
+			</tr>
+
+			<tr>
+				<td  class="pd-10">
+					Loan Amount (period)
+
+				</td>
+				<td  class="pd-10">
+					<div class="slc2">
+						<div class="select">
+							<select>
+							<option value="1" th:text="${calLoans.getCalculateInvoices().getPeriod()}">3</option>
+						
+							</select>
+						</div>
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+
+				<td  class="pd-10">
+					Monthly Interet rate
+				</td>
+				<td  class="pd-10">
+					<input type="text" name="" id="month" placeholder="5%" class="br-none" th:text="${calLoans.getCalculateInvoices().getInterest()}">
+				</td>
+				
+			</tr>
+
+			<tr>
+				<td  class="pd-10">Payout date</td>
+				<td  class="pd-10">
+					<input type="date" name="" id="month2" placeholder="5" class="br-none" th:text="${calLoans.getCalculateInvoices().getPayoutDate()}">
+
+				</td>
+			</tr>
+			<tr>
+				<td style="padding: 20px 0;">İnvoices:</td>
+			</tr>
+		</table>
+	 <table class="table2" border="1" id="tableA" >
+		 <tr>
+			 <th>#</th>
+			 <th>İnvoice No</th>
+			 <th>Due Date</th>
+			 <th>Amount</th>
+		 </tr>
+
+		 <tr th:each="list:${calLoans.getResponseList}">
+			 <td>1</td>
+			 <td th:text="${list.getInvoiceNo"}></td>
+			 <td th:text="${list.getDuaDate}"></td>
+			 <td th:text="${list.getAmount()}"></td>
+		 </tr>
+
+
+	 </table>
+
+	<div class="inter">
+<div class="bottom">
+<div style="display: inline;margin: 0 30px; ">Total Interest</div>	
+	<input type="text" class="total" placeholder="75.00">
+</div>
+<div class="bottom2" style="text-align: end;">
+	<button type="submit" value="Cancel" style="padding: 10px; width: 90px;">Cancel</button>
+</div>
+	</div>
+
+
+	</div>
+	
+</body>
+</html>
