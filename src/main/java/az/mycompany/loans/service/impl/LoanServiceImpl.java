@@ -49,7 +49,7 @@ public class LoanServiceImpl implements LoanService {
         for (int i=0;i<calculateInvoices.getPeriod();i++){
             InvocesResponse invocesResponse=new InvocesResponse();
             invocesResponse.setInvoiceNo("00"+i);
-            invocesResponse.setDuaDate(calculateInvoices.getPayoutDate().plusMonths(i+1));
+            invocesResponse.setDuaDate(calculateInvoices.getPayout().plusMonths(i+1));
             result=calculateInvoices.getAmount()
                     .divide(BigDecimal.valueOf(calculateInvoices.getPeriod()))
                     .add(unpaid.multiply(calculateInvoices.getInterest()));
@@ -59,8 +59,9 @@ public class LoanServiceImpl implements LoanService {
 
 
         }
-        model.addAttribute("calLoans",new ResInvoices(calculateInvoices,list));
-
+        model.addAttribute("user",userRepo.findById(calculateInvoices.getUserId()));
+        model.addAttribute("calInvoice",calculateInvoices);
+        model.addAttribute("listInvoice",list);
 
     }
 
@@ -94,7 +95,7 @@ public class LoanServiceImpl implements LoanService {
         responseUserLoan.setName(entity.getUserEntity().getName());
         responseUserLoan.setSurname(entity.getUserEntity().getSurname());
         responseUserLoan.setAmount(entity.getAmount());
-        responseUserLoan.setPayoutDate(entity.getPayOutDate());
+        responseUserLoan.setPayoutDate(entity.getPayOutDate().toLocalDate());
         return responseUserLoan;
 
     }

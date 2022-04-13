@@ -13,7 +13,7 @@
 			<h3>Loan details</h3>
 			<hr>
 		</div>
-		<table class="table1" th:if="${calLoans.isEmpty()}">
+		<table class="table1" >
 			<tr>
 				<td class="pd-10">
 					Client
@@ -23,7 +23,7 @@
 						<select >
 						  <option
 								  value="1"
-								  th:text="${calLoans.getUserCalculate().getUser().getClientUniqueId()+''+calLoans.getUserCalculate().getUser().getName+''+calLoans.getUserCalculate().getUser().getUsername}">123456A |Ahmad Akhtarov</option>
+								  th:text="${user.getClientUniqueId()+''+user.getName+''+user.getUsername}"></option>
 						
 						</select>
 					   </div>
@@ -32,7 +32,7 @@
 
 			<tr>
 				<td  class="pd-15">Telephone Number</td>
-				<td  class="pd-15"><input type="tel" name="" id="number" placeholder="+372937262323" class="br-none" th:text="${calLoans.getUserCalculate().getUser().getTelePhoneNr()"></td>
+				<td  class="pd-15" th:text="${user.getTelePhoneNr()}"></td>
 			</tr>
 			<tr>
 				<td  class="pd-10">Loan Amount</td>
@@ -88,7 +88,7 @@
 			 <th>Amount</th>
 		 </tr>
 
-		 <tr th:each="list:${calLoans.getResponseList}">
+		 <tr th:each="list:${listInvoice}">
 			 <td>1</td>
 			 <td th:text="${list.getInvoiceNo"}></td>
 			 <td th:text="${list.getDuaDate}"></td>

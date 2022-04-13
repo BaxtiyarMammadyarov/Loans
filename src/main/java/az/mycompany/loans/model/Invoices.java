@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 public class Invoices {
 
     BigDecimal amount;
-    LocalDateTime dueDate;
+    LocalDate dueDate;
     Integer LoanPeriod;
     Integer invoiceNr;
     Integer orderNr;

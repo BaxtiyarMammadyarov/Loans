@@ -8,7 +8,8 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class InvoicesEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     BigDecimal amount;
-    LocalDateTime dueDate;
+    LocalDate dueDate;
     Integer LoanPeriod;
     Integer invoiceNr;
     Integer orderNr;

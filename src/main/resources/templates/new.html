@@ -13,7 +13,7 @@
 		<h3>Loan details</h3>
 		<hr>
 	</div>
-	<form  action="#" method="post" th:object="${Request}" id="form1">
+	<form  action="/issue" method="post" th:object="${Request}" id="form1">
 	<table class="table1" th:if="${!users.isEmpty()}"  >
 		<tr>
 			<td class="pd-10">
@@ -22,7 +22,7 @@
 			<td  class="pd-10">
 				<div class="select">
 					<select th:each="user:${users}">
-						<option value="1" th:text="${user.getClientUniqueId()+' '+user.getName()+' '+user.getSurname()}"> </option>
+						<option value="1" th:field="*{userId}" th:text="${user.getClientUniqueId()+' '+user.getName()+' '+user.getSurname()}"> </option>
 
 					</select>
 				</div>
@@ -31,7 +31,7 @@
 
 		<tr>
 			<td  class="pd-15">Telephone Number</td>
-			<td  class="pd-15"><input type="tel" name="" id="number" placeholder="+372937262323" class="br-none"></td>
+			<td  class="pd-15"><input type="tel" name="" id="number"  class="br-none"></td>
 		</tr>
 		<tr>
 			<td  class="pd-10">Loan Amount</td>
@@ -68,7 +68,7 @@
 		<tr>
 			<td  class="pd-10">Payout date</td>
 			<td  class="pd-10">
-				<input type="date"  id="month2" placeholder="5" class="br-none interest" th:field="*{payoutDate}">
+				<input type="date"  id="month2" placeholder="5" class="br-none interest" th:field="*{payout}">
 
 			</td>
 		</tr>

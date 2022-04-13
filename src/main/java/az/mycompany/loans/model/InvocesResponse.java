@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class InvocesResponse {
     String invoiceNo;
-    LocalDateTime duaDate;
+    LocalDate duaDate;
     BigDecimal amount;
 
 }
